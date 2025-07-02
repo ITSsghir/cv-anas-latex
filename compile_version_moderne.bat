@@ -1,22 +1,31 @@
 @echo off
-echo ====================================
-echo     COMPILATION CV ANAS SGHIR
-echo        VERSION MODERNE
-echo ====================================
+echo ==========================================
+echo    COMPILATION CV ANAS SGHIR - VERSION MODERNE
+echo ==========================================
+echo.
+echo Compilation de la version moderne (palette verte Data Science)...
+echo Fichier source : latex/cv_anas_modern.tex
 echo.
 
-echo Compilation de la version moderne (Data Science Green)...
-pdflatex main.tex
-pdflatex main.tex
+cd latex
+echo Compilation en cours...
+pdflatex cv_anas_modern.tex
+echo.
+echo Deuxieme passe pour les references...
+pdflatex cv_anas_modern.tex
+echo.
+
+if exist cv_anas_modern.pdf (
+    echo ✅ SUCCES ! CV genere : latex/cv_anas_modern.pdf
+    echo.
+    echo Nettoyage des fichiers temporaires...
+    del *.aux *.log *.fdb_latexmk *.fls *.out 2>nul
+    echo ✅ Nettoyage termine !
+) else (
+    echo ❌ ERREUR lors de la compilation !
+    echo Verifiez les logs d'erreur ci-dessus.
+)
 
 echo.
-echo Nettoyage des fichiers temporaires...
-del *.aux *.log *.out *.fdb_latexmk *.fls *.synctex.gz 2>nul
-
-echo.
-echo ====================================
-echo    COMPILATION TERMINEE !
-echo ====================================
-echo Le CV PDF moderne est pret : main.pdf
-echo.
+echo ==========================================
 pause 
