@@ -25,23 +25,50 @@
 *.dvi
 *.ps
 *.eps
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+*.xdv
+*-converted-to.*
+
+# === BIBLIOGRAPHIE ===
+*.bbl-SAVE-ERROR
+*.bcf-SAVE-ERROR
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+# === OUTILS DE BUILD ===
+*.rubbercache
+rubber.cache
+latex.out/
 
 # === FICHIERS D'ÉDITEUR ===
 *~
 .DS_Store
 Thumbs.db
+*.backup
+*.bak
+*.sav
 
 # === DOSSIERS TEMPORAIRES ===
 .vscode/
 .idea/
-
-# === FICHIERS DE SAUVEGARDE ===
-*.bak
-*.backup
+.texpadtmp/
+./auto/
 
 # === FICHIERS SPÉCIFIQUES WINDOWS ===
 *.lnk
 
+# === EDITEURS LATEX ===
+TSWLatexianTemp*
+*.el
+.*.swp
+*~[0-9]*
+*.tps
+
 # === GARDER LES PDF FINAUX (optionnel) ===
 # Si vous voulez exclure les PDF, décommentez la ligne suivante :
-# *.pdf 
+# *.pdf
