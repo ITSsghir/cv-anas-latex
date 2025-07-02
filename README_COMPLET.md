@@ -231,18 +231,20 @@ Version_Actuelle/
 
 ## ⚙️ **COMPILATION DU CV**
 
-### **🖥️ MÉTHODE 1 : Script Windows (RECOMMANDÉE)**
-1. **Double-cliquez** sur `compile_cv_final.bat`
-2. Le script se charge de tout automatiquement
-3. Le PDF sera généré : `latex/cv_anas_final.pdf`
+### **🎨 DEUX VERSIONS DISPONIBLES :**
 
-### **📄 PROCESSUS DE COMPILATION :**
-```batch
-cd latex
-pdflatex cv_anas_final.tex
-pdflatex cv_anas_final.tex     # 2ème passage pour références
-del *.aux *.log *.out *.fdb_latexmk *.fls *.synctex.gz  # Nettoyage
-```
+#### **🌟 VERSION MODERNE (Data Science Green) :**
+1. **Double-cliquez** sur `compile_version_moderne.bat`
+2. Le PDF sera généré : `main.pdf`
+3. **Caractéristiques :** Palette verte, effets TikZ, police Roboto
+
+#### **📄 VERSION CLASSIQUE (Marron/Beige) :**
+1. **Double-cliquez** sur `compile_version_classique.bat`
+2. Le PDF sera généré : `latex/cv_anas_final.pdf`
+3. **Caractéristiques :** Palette marron/beige, style AltaCV standard, police Lato
+
+### **🔄 ANCIEN SCRIPT (conservé) :**
+- `compile_cv_final.bat` → Compile la version classique
 
 ### **💻 MÉTHODE 2 : Ligne de commande**
 ```bash
@@ -252,9 +254,22 @@ pdflatex cv_anas_final.tex
 ```
 
 ### **🌐 MÉTHODE 3 : Overleaf (En ligne)**
-1. Uploadez tout le dossier `Version_Actuelle`
-2. Définissez `main.tex` comme fichier principal
-3. Cliquez sur "Recompile"
+
+#### **🚀 SETUP INITIAL :**
+1. **Uploadez** tout le dossier `Version_Actuelle` sur Overleaf
+2. **Choisissez votre version** en définissant le fichier principal
+
+#### **🎨 POUR VERSION MODERNE (Data Science Green) :**
+1. **Menu** → **Main document** → `main.tex`
+2. **Recompile** → Obtient la version verte avec effets TikZ
+
+#### **📄 POUR VERSION CLASSIQUE (Marron/Beige) :**
+1. **Menu** → **Main document** → `latex/cv_anas_final.tex`
+2. **Recompile** → Obtient la version marron/beige classique
+
+#### **🔄 CHANGER DE VERSION :**
+- **Changez simplement** le "Main document" dans le menu
+- **Recompilez** pour voir la nouvelle version
 
 ---
 
@@ -270,17 +285,22 @@ pdflatex cv_anas_final.tex
 ### **🎯 DEUX VERSIONS DISPONIBLES :**
 
 #### **1. 🎨 VERSION MODERNE (`main.tex`)**
-- Design Data Science avec dégradés
-- Couleurs vertes modernes
-- Effets TikZ et ombres
-- Police Roboto
-- Encadrés colorés pour projets
+- **Fichier :** `main.tex` (racine du projet)
+- **Script :** `compile_version_moderne.bat`
+- **PDF généré :** `main.pdf`
+- **Design :** Data Science avec dégradés
+- **Couleurs :** Palette verte moderne (DataGreen)
+- **Police :** Roboto
+- **Effets :** TikZ, ombres, encadrés colorés
 
 #### **2. 📄 VERSION CLASSIQUE (`latex/cv_anas_final.tex`)**
-- Design plus sobre
-- Couleurs marron/beige
-- Police Lato
-- Structure AltaCV standard
+- **Fichier :** `latex/cv_anas_final.tex`
+- **Script :** `compile_version_classique.bat` ou `compile_cv_final.bat`
+- **PDF généré :** `latex/cv_anas_final.pdf`
+- **Design :** AltaCV standard
+- **Couleurs :** Palette marron/beige (PrimaryBrown)
+- **Police :** Lato
+- **Effets :** Style simplifié
 
 ### **⚠️ FICHIERS REQUIS POUR COMPILATION :**
 - ✅ `altacv.cls` (template)
