@@ -1,0 +1,173 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[10pt,a4paper,normalphoto]{altacv}
+
+% Géométrie optimisée pour une mise en page parfaite avec plus d'espace sidebar
+\geometry{left=1cm,right=9cm,marginparwidth=7.2cm,marginparsep=1.0cm,top=0.4cm,bottom=1.0cm,footskip=1.2\baselineskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[default]{lato}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[colorlinks=true, urlcolor=blue]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[export]{adjustbox}
+
+% Palette de couleurs personnalisée d'Anas
+\definecolor{PrimaryBrown}{HTML}{623736}    % Couleur principale pour les titres
+\definecolor{ThemeBeige}{HTML}{f3eae8}      % Couleur de thème douce
+\definecolor{TextBlack}{HTML}{000000}      % Noir pour le texte principal
+\definecolor{TextGrey}{HTML}{333333}       % Gris foncé pour le texte secondaire
+\definecolor{White}{HTML}{FFFFFF}          % Blanc
+
+\colorlet{heading}{PrimaryBrown}
+\colorlet{accent}{PrimaryBrown}
+\colorlet{emphasis}{TextBlack}
+\colorlet{body}{TextGrey}
+
+\renewcommand{\itemmarker}{{\small\textbullet}}
+\renewcommand{\ratingmarker}{\faCircle}
+
+% Optimisation de la taille des tags pour l'espace - Version compacte
+\renewcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!30,rounded corners,inner xsep=0.7ex,inner ysep =0.4ex,text height=1.1ex,text depth=.2ex]{\scriptsize#1};%
+}
+
+\addbibresource{sample.bib}
+
+\begin{document}
+
+\name{\huge{ANAS SGHIR}}
+
+\tagline{\large{Data Scientist | Machine Learning Engineer | Product Owner}}
+
+% Votre vraie photo
+\photo{2.5cm}{images/Photo.jpg}
+
+\personalinfo{
+  \email{anas@itssghir.com}
+  \phone{07 58 93 41 75}
+  \location{Disponible à partir de septembre 2025}
+  \linkedin{\href{https://linkedin.com/in/anassghir}{\uline{LinkedIn}}}
+  \github{\href{https://github.com/itssghir}{\uline{GitHub}}}
+  \homepage{\href{https://anas.itssghir.com}{\uline{Portfolio}}}
+}
+
+\begin{fullwidth}
+\makecvheader
+\vspace{-0.8em}
+\end{fullwidth}
+
+\begin{fullwidth}
+\cvsection{\faUser \hspace{0.5em} À PROPOS}
+Étudiant en Master MIAGE spécialisé en Data Science avec de solides compétences en Machine Learning et Statistical Analysis. Formé aux technologies Python, SQL et Cloud Computing (AWS, Azure) avec une approche pratique des projets Data Science. Expérience en Business Intelligence, Predictive Modeling et Data Visualization (Tableau, Power BI) acquise lors de stages et projets académiques. Passionné par l'innovation technologique, je cherche à appliquer mes compétences techniques dans un environnement professionnel stimulant.
+\end{fullwidth}
+
+\cvsection[sidebar_anas_final]{\faBriefcase \hspace{0.5em} EXPÉRIENCES PROFESSIONNELLES}
+
+\cvevent{\textbf{Data Analyst \& Product Owner}}{%
+  \includegraphics[height=1em]{images/logo_banque_postale.png} \hspace{0.5em} La Banque Postale}{2025 - En cours}{Toulouse}
+\begin{itemize}
+\item Data Analysis et Statistical Analysis sur datasets financiers
+\item Développement de requêtes SQL et scripts Python
+\item Creation de dashboards avec Tableau \& Power BI
+\item Predictive Modeling et Data Mining sur projets d'équipe
+\item Support à la Product Strategy et reporting métier
+\item KPI Tracking et analyse de Performance Metrics
+\item Participation aux processus de Data Quality
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Projet Académique - Application Empreinte Carbone}}{%
+  \includegraphics[height=1em]{images/logo_toulouse3.jpg} \hspace{0.5em} Université Toulouse III}{2023 - 2024}{Toulouse}
+\begin{itemize}
+\item Développement d'une application de calcul d'empreinte carbone (Python, React Native)
+\item Reconnaissance caméra et vocale (APIs Google)
+\item Gestion complète du projet (coordination, planification, supervision)
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Data Analyst}}{%
+  \includegraphics[height=1em]{images/logo_shl.png} \hspace{0.5em} SHL}{2022 - 2023}{Marseille}
+\begin{itemize}
+\item Développement web avec Python, JavaScript et SQL
+\item Data Analysis et création de rapports
+\item Participation aux projets Agile en équipe
+\item Statistical Analysis et suivi de métriques
+\item Contribution aux activités de Database Management
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Freelance Développeur Web}}{%
+  \includegraphics[height=1em]{images/logo.png} \hspace{0.5em} Indépendant}{2021 - 2022}{Aix-en-Provence}
+\begin{itemize}
+\item Conception et développement de sites web multisecteurs
+\item Travail en équipe interdisciplinaire
+\item Compétences en gestion, communication, autonomie
+\end{itemize}
+
+% ============= PAGE 2 =============
+\clearpage
+
+\cvsection[page2_sidebar]{\faRocket \hspace{0.5em} PROJETS PERSONNELS}
+
+\cvevent{\textbf{Modèles de Prédiction et Clustering}}{Kaggle - Projet Personnel}{2024}{}
+\begin{itemize}
+\item Entraînement de modèles ML pour détecter le comportement utilisateurs
+\item Clustering K-means et DBSCAN pour segmentation
+\item Algorithmes de prédiction avec TensorFlow et Scikit-learn
+\item Analyse comportementale et patterns utilisateurs
+\item Optimisation des hyperparamètres et validation croisée
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Chatbot Personnalisé avec API ChatGPT}}{Projet Personnel}{2024}{}
+\begin{itemize}
+\item Utilisation d'API ChatGPT pour besoins spécifiques
+\item Personnalisation du modèle pour domaine métier
+\item Interface conversationnelle intelligente
+\item Intégration avec base de connaissances entreprise
+\item Fine-tuning pour réponses contextuelles
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Dashboards Analytics Tableau \& Power BI}}{Projets Multiples}{2023-2024}{}
+\begin{itemize}
+\item Création de dashboards interactifs dans Tableau
+\item Visualisations avancées avec Power BI
+\item KPIs temps réel et reporting automatisé
+\item Intégration multi-sources de données
+\item Optimisation des performances et UX
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Site Web de Simulation Phishing}}{Projet Éducatif}{2023}{}
+\begin{itemize}
+\item Développement d'un site de simulation de phishing
+\item Objectif : formation à la cybersécurité
+\item Interface réaliste pour tests de sensibilisation
+\item Tableaux de bord de résultats et statistiques
+\item Approche éthique et éducative
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Modélisation d'Entreprise TOGAF \& ArchiMate}}{Projet Académique}{2024}{}
+\begin{itemize}
+\item Modélisation architecturale avec framework TOGAF
+\item Diagrammes ArchiMate pour architecture d'entreprise
+\item Cartographie des processus métiers
+\item Architecture technique et applicative
+\item Documentation des flux et dépendances
+\end{itemize}
+
+
+
+\end{document} 

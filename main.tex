@@ -1,0 +1,364 @@
+\PassOptionsToPackage{dvipsnames}{xcolor}
+\documentclass[10pt,a4paper,normalphoto]{altacv}
+
+% Géométrie optimisée pour une mise en page moderne
+\geometry{left=1cm,right=9cm,marginparwidth=7.2cm,marginparsep=1.0cm,top=0.4cm,bottom=1.0cm,footskip=1.2\baselineskip}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[sfdefault,light]{roboto} % Police Roboto moderne
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shadings,shadows.blur}
+\usepackage[colorlinks=true, urlcolor=DataGreen]{hyperref}
+\usepackage[normalem]{ulem}
+\usepackage[export]{adjustbox}
+\usepackage{fontawesome}
+\usepackage[most]{tcolorbox}
+
+% === PALETTE DATA GREEN MODERNE ===
+\definecolor{DataGreen}{HTML}{16A085}        % Couleur principale Data Science
+\definecolor{DataGreenLight}{HTML}{48C9B0}   % Vert clair pour accents
+\definecolor{DataGreenDark}{HTML}{117A65}    % Vert foncé pour texte important
+\definecolor{SoftGray}{HTML}{F8F9FA}         % Gris très clair pour fond
+\definecolor{ModernGray}{HTML}{2C3E50}       % Gris moderne pour texte
+\definecolor{TechWhite}{HTML}{FFFFFF}        % Blanc pur
+\definecolor{ShadowGray}{HTML}{BDC3C7}       % Gris pour ombres
+
+% Configuration des couleurs du template
+\colorlet{heading}{DataGreenDark}
+\colorlet{accent}{DataGreen}
+\colorlet{emphasis}{ModernGray}
+\colorlet{body}{ModernGray}
+
+\renewcommand{\itemmarker}{{\color{DataGreen}\small\faCircle}}
+\renewcommand{\ratingmarker}{\color{DataGreen}\faCircle}
+
+% === TAGS INTERACTIFS AVEC BORDURES COLORÉES ===
+\renewcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[
+    anchor=base,
+    draw=DataGreen,
+    fill=DataGreenLight!10,
+    rounded corners=3pt,
+    inner xsep=0.8ex,
+    inner ysep=0.6ex,
+    text height=1.2ex,
+    text depth=0.25ex,
+    font=\small\sffamily,
+    text=DataGreenDark,
+    drop shadow={opacity=0.2,shadow xshift=0.5pt,shadow yshift=-0.5pt}
+  ]{#1};%
+}
+
+% === DIVIDERS STYLISÉS ===
+\renewcommand{\divider}{
+  \begin{tikzpicture}
+    \draw[DataGreenLight, line width=1.5pt, rounded corners=0.5pt] 
+      (0,0) -- (\linewidth,0);
+  \end{tikzpicture}
+  \medskip
+}
+
+% === BANNIÈRE EN-TÊTE AVEC DÉGRADÉ ===
+\newcommand{\modernheader}{
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[left color=DataGreen, right color=DataGreenLight, opacity=0.1]
+      (current page.north west) rectangle ++(\paperwidth,-3cm);
+  \end{tikzpicture}
+}
+
+% === HIGHLIGHT BOX POUR CERTIFICATIONS ===
+\newcommand{\highlightbox}[2]{
+  \begin{tcolorbox}[
+    enhanced,
+    colback=DataGreenLight!8,
+    colframe=DataGreen,
+    boxrule=1.5pt,
+    arc=4pt,
+    left=4pt,
+    right=4pt,
+    top=4pt,
+    bottom=4pt,
+    drop shadow={opacity=0.15,shadow xshift=1pt,shadow yshift=-1pt}
+  ]
+    \textbf{\color{DataGreenDark}#1} \\
+    \small #2
+  \end{tcolorbox}
+}
+
+% === SECTION AVEC ENCADRÉS POUR PROJETS ===
+\newcommand{\projectbox}[1]{
+  \begin{tcolorbox}[
+    enhanced,
+    colback=SoftGray,
+    colframe=DataGreenLight,
+    boxrule=1pt,
+    arc=3pt,
+    left=6pt,
+    right=6pt,
+    top=6pt,
+    bottom=6pt
+  ]
+    #1
+  \end{tcolorbox}
+  \vspace{0.3em}
+}
+
+% === AMÉLIORATION DE LA HIÉRARCHIE TYPOGRAPHIQUE ===
+\renewcommand{\cvsection}[2][]{%
+  \bigskip%
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
+  \begingroup
+    \begin{tikzpicture}
+      \fill[left color=DataGreen, right color=DataGreenLight, opacity=0.15]
+        (0,0) rectangle (\linewidth,0.8cm);
+    \end{tikzpicture}
+    \vspace{-0.6cm}
+    {\color{TechWhite}\LARGE\bfseries\sffamily\MakeUppercase{#2}}
+  \endgroup
+  \medskip
+}
+
+\renewcommand{\cvsubsection}[1]{%
+  \smallskip%
+  {\color{DataGreenDark}\large\bfseries\sffamily{#1}\par}
+  \vspace{0.2em}
+  {\color{DataGreenLight}\rule{0.3\linewidth}{1.5pt}\par}
+  \medskip
+}
+
+% === ÉVÉNEMENTS AVEC STYLE MODERNE ===
+\renewcommand{\cvevent}[4]{%
+  \begin{tcolorbox}[
+    enhanced,
+    colback=TechWhite,
+    colframe=DataGreenLight,
+    boxrule=0.5pt,
+    arc=2pt,
+    left=8pt,
+    right=8pt,
+    top=6pt,
+    bottom=6pt,
+    drop shadow={opacity=0.1,shadow xshift=0.5pt,shadow yshift=-0.5pt}
+  ]
+    {\large\color{DataGreenDark}\bfseries\sffamily#1\par}
+    \smallskip
+    {\color{DataGreen}\bfseries#2}\par
+    \smallskip
+    {\small\color{ModernGray}
+      \makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
+      \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \end{tcolorbox}
+  \medskip
+}
+
+\addbibresource{sample.bib}
+
+\begin{document}
+
+% Ajout de la bannière moderne
+\modernheader
+
+\name{\huge{\sffamily\bfseries ANAS SGHIR}}
+
+\tagline{\large{\color{DataGreen}\sffamily\bfseries Data Scientist | Machine Learning Engineer | Product Owner}}
+
+% Photo avec ombre moderne
+\photo{2.5cm}{images/Photo.jpg}
+
+\personalinfo{
+  \email{anas@itssghir.com}
+  \phone{07 58 93 41 75}
+  \location{Disponible à partir de septembre 2025}
+  \linkedin{\href{https://linkedin.com/in/anassghir}{\color{DataGreen}\uline{LinkedIn}}}
+  \github{\href{https://github.com/itssghir}{\color{DataGreen}\uline{GitHub}}}
+  \homepage{\href{https://anas.itssghir.com}{\color{DataGreen}\uline{Portfolio}}}
+}
+
+\begin{fullwidth}
+\makecvheader
+\vspace{-0.8em}
+\end{fullwidth}
+
+\begin{fullwidth}
+\cvsection{\faUser \hspace{0.5em} À PROPOS}
+\sffamily Étudiant en Master MIAGE spécialisé en \textbf{\color{DataGreen}Data Science} avec de solides compétences en \textbf{\color{DataGreen}Machine Learning} et \textbf{\color{DataGreen}Statistical Analysis}. Formé aux technologies \textbf{\color{DataGreen}Python}, \textbf{\color{DataGreen}SQL} et \textbf{\color{DataGreen}Cloud Computing} (AWS, Azure) avec une approche pratique des projets Data Science. Expérience en \textbf{\color{DataGreen}Business Intelligence}, \textbf{\color{DataGreen}Predictive Modeling} et \textbf{\color{DataGreen}Data Visualization} (Tableau, Power BI) acquise lors de stages et projets académiques. Passionné par l'innovation technologique, je cherche à appliquer mes compétences techniques dans un environnement professionnel stimulant.
+\end{fullwidth}
+
+\cvsection[sidebar_anas_final]{\faBriefcase \hspace{0.5em} EXPÉRIENCES PROFESSIONNELLES}
+
+\cvevent{\textbf{Data Analyst \& Product Owner}}{%
+  \includegraphics[height=1em]{images/logo_banque_postale.png} \hspace{0.5em} La Banque Postale}{2025 - En cours}{Toulouse}
+\begin{itemize}
+\item Data Analysis et Statistical Analysis sur datasets financiers
+\item Développement de requêtes SQL et scripts Python
+\item Creation de dashboards avec Tableau \& Power BI
+\item Predictive Modeling et Data Mining sur projets d'équipe
+\item Support à la Product Strategy et reporting métier
+\item KPI Tracking et analyse de Performance Metrics
+\item Participation aux processus de Data Quality
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Projet Académique - Application Empreinte Carbone}}{%
+  \includegraphics[height=1em]{images/logo_toulouse3.jpg} \hspace{0.5em} Université Toulouse III}{2023 - 2024}{Toulouse}
+\begin{itemize}
+\item Développement d'une application de calcul d'empreinte carbone (Python, React Native)
+\item Reconnaissance caméra et vocale (APIs Google)
+\item Gestion complète du projet (coordination, planification, supervision)
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Data Analyst}}{%
+  \includegraphics[height=1em]{images/logo_shl.png} \hspace{0.5em} SHL}{2022 - 2023}{Marseille}
+\begin{itemize}
+\item Développement web avec Python, JavaScript et SQL
+\item Data Analysis et création de rapports
+\item Participation aux projets Agile en équipe
+\item Statistical Analysis et suivi de métriques
+\item Contribution aux activités de Database Management
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Freelance Développeur Web}}{%
+  \includegraphics[height=1em]{images/logo_aix_marseille.jpg} \hspace{0.5em} Indépendant}{2021 - 2022}{Aix-en-Provence}
+\begin{itemize}
+\item Conception et développement de sites web multisecteurs
+\item Travail en équipe interdisciplinaire
+\item Compétences en gestion, communication, autonomie
+\end{itemize}
+
+% ============= PAGE 2 =============
+\clearpage
+
+\cvsection[page2_sidebar]{\faRocket \hspace{0.5em} PROJETS PERSONNELS}
+
+\projectbox{
+\cvevent{\textbf{Modèles de Prédiction et Clustering}}{Kaggle - Projet Personnel}{2024}{}
+\begin{itemize}
+\item Entraînement de modèles ML pour détecter le comportement utilisateurs
+\item Clustering K-means et DBSCAN pour segmentation
+\item Algorithmes de prédiction avec TensorFlow et Scikit-learn
+\item Analyse comportementale et patterns utilisateurs
+\item Optimisation des hyperparamètres et validation croisée
+\end{itemize}
+}
+
+\divider
+
+\projectbox{
+\cvevent{\textbf{Chatbot Personnalisé avec API ChatGPT}}{Projet Personnel}{2024}{}
+\begin{itemize}
+\item Utilisation d'API ChatGPT pour besoins spécifiques
+\item Personnalisation du modèle pour domaine métier
+\item Interface conversationnelle intelligente
+\item Intégration avec base de connaissances entreprise
+\item Fine-tuning pour réponses contextuelles
+\end{itemize}
+}
+
+\divider
+
+\cvevent{\textbf{Dashboards Analytics Tableau \& Power BI}}{Projets Multiples}{2023-2024}{}
+\begin{itemize}
+\item Création de dashboards interactifs dans Tableau
+\item Visualisations avancées avec Power BI
+\item KPIs temps réel et reporting automatisé
+\item Intégration multi-sources de données
+\item Optimisation des performances et UX
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Site Web de Simulation Phishing}}{Projet Éducatif}{2023}{}
+\begin{itemize}
+\item Développement d'un site de simulation de phishing
+\item Objectif : formation à la cybersécurité
+\item Interface réaliste pour tests de sensibilisation
+\item Tableaux de bord de résultats et statistiques
+\item Approche éthique et éducative
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Modélisation d'Entreprise TOGAF \& ArchiMate}}{Projet Académique}{2024}{}
+\begin{itemize}
+\item Modélisation architecturale avec framework TOGAF
+\item Diagrammes ArchiMate pour architecture d'entreprise
+\item Cartographie des processus métiers
+\item Architecture technique et applicative
+\item Documentation des flux et dépendances
+\end{itemize}
+
+% ============= PAGE 3 =============
+\clearpage
+
+\cvsection[page3_sidebar]{\faCogs \hspace{0.5em} TECHNOLOGIES \& RÉALISATIONS}
+
+\cvsubsection{\faGraduationCap \hspace{0.5em} FORMATION \& CERTIFICATIONS}
+
+\cvevent{\textbf{Master 2 MIAGE - Data Science}}{Université Toulouse III Paul Sabatier}{2023 - 2025}{En cours}
+\begin{itemize}
+\item Spécialisation Machine Learning et Data Engineering
+\item Projets académiques en Python, SQL, et Statistical Analysis
+\item Mémoire sur l'optimisation d'algorithmes de classification
+\item Projets pratiques en Data Analysis et visualisation
+\end{itemize}
+
+\divider
+
+\highlightbox{🏆 Core Designer Certificate Dataiku}{
+Plateforme Data Science - \textbf{\color{DataGreen}Mars 2025} \\
+\small
+• Data Pipeline development et Data Preparation \\
+• Machine Learning model training avec AutoML \\
+• Business Intelligence dashboard creation \\
+• Data Visualization et Reporting automatisé
+}
+
+\cvsubsection{\faStar \hspace{0.5em} EXPÉRIENCE PROFESSIONNELLE}
+
+\cvevent{\textbf{Data Analyst \& Product Owner}}{La Banque Postale}{2025}{Stage/Alternance}
+\begin{itemize}
+\item Data Analysis sur datasets financiers avec Python et SQL
+\item Database Management et Query Optimization (amélioration 15\%)
+\item Dashboard creation avec Tableau pour Business Intelligence
+\item Participation à des projets Agile/Scrum en équipe
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Data Analyst}}{SHL - Projet d'équipe}{2022 - 2023}{Mission académique}
+\begin{itemize}
+\item Statistical Analysis et Data Mining sur données clients
+\item Web Development avec JavaScript et Database Integration
+\item Project Management et Scrum methodology application
+\item Data Visualization avec Excel et Power BI
+\end{itemize}
+
+\cvsubsection{\faAward \hspace{0.5em} PROJETS \& CONTRIBUTIONS}
+
+\cvevent{\textbf{Projets Data Science}}{Portfolio Personnel}{2023 - 2025}{Développement continu}
+\begin{itemize}
+\item Machine Learning projects avec Scikit-learn et TensorFlow
+\item Data Analysis et Predictive Modeling sur datasets publics
+\item GitHub contributions à des projets open source
+\item Technical writing et documentation de projets
+\end{itemize}
+
+\divider
+
+\cvevent{\textbf{Développement Personnel \& Apprentissage}}{Formation Continue}{2024 - 2025}{Auto-formation}
+\begin{itemize}
+\item Cours en ligne sur les technologies Cloud (AWS, Azure)
+\item Veille technologique sur les nouvelles méthodes ML
+\item Participation à des forums et communautés tech
+\item Documentation de projets personnels sur GitHub
+\end{itemize}
+
+\end{document} 

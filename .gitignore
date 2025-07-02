@@ -1,0 +1,47 @@
+# === FICHIERS LATEX TEMPORAIRES ===
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.nav
+*.snm
+*.vrb
+
+# === FICHIERS DE COMPILATION ===
+*.dvi
+*.ps
+*.eps
+
+# === FICHIERS D'ÉDITEUR ===
+*~
+.DS_Store
+Thumbs.db
+
+# === DOSSIERS TEMPORAIRES ===
+.vscode/
+.idea/
+
+# === FICHIERS DE SAUVEGARDE ===
+*.bak
+*.backup
+
+# === FICHIERS SPÉCIFIQUES WINDOWS ===
+*.lnk
+
+# === GARDER LES PDF FINAUX (optionnel) ===
+# Si vous voulez exclure les PDF, décommentez la ligne suivante :
+# *.pdf 
